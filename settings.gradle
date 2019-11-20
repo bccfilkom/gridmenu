@@ -1,0 +1,2 @@
+include ':app', ':squaremenu'
+rootProject.name='GridMenu'
