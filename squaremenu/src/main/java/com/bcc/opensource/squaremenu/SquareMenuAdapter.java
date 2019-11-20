@@ -23,7 +23,7 @@ public class SquareMenuAdapter extends RecyclerView.Adapter<SquareMenuAdapter.Vi
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_menu_item, parent);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_menu_item, parent, false);
         return new ViewHolder(view);
     }
 
