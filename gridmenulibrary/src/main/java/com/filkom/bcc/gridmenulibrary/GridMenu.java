@@ -1,4 +1,4 @@
-package com.filkom.bcc.gridmenu;
+package com.filkom.bcc.gridmenulibrary;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -8,8 +8,6 @@ import android.widget.FrameLayout;
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import com.filkom.bcc.gridmenulibrary.R;
 
 import java.util.List;
 

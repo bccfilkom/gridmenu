@@ -7,7 +7,7 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <com.filkom.bcc.gridmenu.GridMenu
+    <com.filkom.bcc.gridmenulibrary.GridMenu
         android:id="@+id/square_menu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
