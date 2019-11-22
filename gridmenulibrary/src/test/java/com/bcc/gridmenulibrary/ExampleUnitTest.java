@@ -1,4 +1,4 @@
-package com.filkom.bcc.gridmenulibrary;
+package com.bcc.gridmenulibrary;
 
 import org.junit.Test;
 
