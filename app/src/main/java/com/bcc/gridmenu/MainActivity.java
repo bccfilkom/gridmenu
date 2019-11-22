@@ -4,8 +4,8 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.bcc.gridmenulibrary.GridMenu;
-import com.bcc.gridmenulibrary.MenuItem;
+import com.bcc.gridmenuview.GridMenu;
+import com.bcc.gridmenuview.MenuItem;
 
 import java.util.ArrayList;
 

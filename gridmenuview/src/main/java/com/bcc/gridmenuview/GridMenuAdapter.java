@@ -1,4 +1,4 @@
-package com.bcc.gridmenulibrary;
+package com.bcc.gridmenuview;
 
 import android.view.LayoutInflater;
 import android.view.View;

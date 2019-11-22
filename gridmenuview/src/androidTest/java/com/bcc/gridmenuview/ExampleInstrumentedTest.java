@@ -1,4 +1,4 @@
-package com.bcc.gridmenulibrary;
+package com.bcc.gridmenuview;
 
 import android.content.Context;
 
