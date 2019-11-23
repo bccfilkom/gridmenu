@@ -1,2 +1,2 @@
-include ':app', ':squaremenu'
+include ':app', ':gridmenuview'
 rootProject.name='GridMenu'
