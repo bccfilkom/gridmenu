@@ -1,7 +1,6 @@
-package com.bcc.opensource.squaremenu;
+package com.bcc.gridmenuview;
 
 import androidx.test.platform.app.InstrumentationRegistry;
-
 import org.junit.Before;
 import org.junit.Test;
 
@@ -10,11 +9,11 @@ import static org.junit.Assert.*;
 
 public class SquareMenuAdapterTest {
 
-    private SquareMenuAdapter squareMenuAdapter;
+    private GridMenuAdapter squareMenuAdapter;
 
     @Before
     public void setUp(){
-        squareMenuAdapter = new SquareMenuAdapter();
+        squareMenuAdapter = new GridMenuAdapter();
     }
 
     @Test

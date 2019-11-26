@@ -1,11 +1,6 @@
-package com.bcc.opensource.squaremenu;
-
-
+package com.bcc.gridmenuview;
 import android.graphics.drawable.Drawable;
-
-import androidx.annotation.NonNull;
 import androidx.test.platform.app.InstrumentationRegistry;
-
 import org.junit.Before;
 import org.junit.Test;
 
