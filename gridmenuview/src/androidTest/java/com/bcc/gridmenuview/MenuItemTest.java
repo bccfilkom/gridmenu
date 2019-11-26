@@ -12,9 +12,10 @@ public class MenuItemTest  {
 
     @Before
     public void setUp()  {
-        menuItem = new MenuItem("Satu",
-                InstrumentationRegistry.getInstrumentation().getContext()
-                        .getDrawable(R.drawable.ic_launcher_background));
+        menuItem = new MenuItem("Satu",InstrumentationRegistry
+                .getInstrumentation()
+                .getContext()
+                .getDrawable(R.drawable.ic_launcher_background));
 
     }
 
@@ -30,9 +31,13 @@ public class MenuItemTest  {
 
     @Test
     public void getImage()  {
-        Drawable image =  InstrumentationRegistry.getInstrumentation().getContext().getDrawable(R.drawable.ic_launcher_background);
+        Drawable image =  InstrumentationRegistry
+                .getInstrumentation()
+                .getContext()
+                .getDrawable(R.drawable.ic_launcher_background);
         if (image!=null) {
-            assertEquals(menuItem.getImage().getConstantState(), image.getConstantState());
+            assertEquals(menuItem.getImage()
+                    .getConstantState(), image.getConstantState());
         }
     }
 }
