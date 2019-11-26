@@ -1,4 +1,4 @@
-package com.bcc.opensource.squaremenu;
+package com.bcc.gridmenuview;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -11,13 +11,13 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-public class SquareMenu extends FrameLayout {
+public class GridMenu extends FrameLayout {
     private static final int DEFAULT_SPAN_COUNT = 3;
 
-    private SquareMenuAdapter adapter = new SquareMenuAdapter();
+    private GridMenuAdapter adapter = new GridMenuAdapter();
     private int spanCount;
 
-    public SquareMenu(Context context, @Nullable AttributeSet attrs) {
+    public GridMenu(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
         setupAttribute(attrs);
         setupRecyclerView();
@@ -36,9 +36,9 @@ public class SquareMenu extends FrameLayout {
 
     private void setupAttribute(@Nullable AttributeSet attrs) {
         TypedArray typedArray = getContext().getTheme()
-                .obtainStyledAttributes(attrs, R.styleable.SquareMenu, 0, 0);
+                .obtainStyledAttributes(attrs, R.styleable.GridMenu, 0, 0);
 
-        spanCount = typedArray.getInt(R.styleable.SquareMenu_spanCount, DEFAULT_SPAN_COUNT);
+        spanCount = typedArray.getInt(R.styleable.GridMenu_spanCount, DEFAULT_SPAN_COUNT);
 
         typedArray.recycle();
     }

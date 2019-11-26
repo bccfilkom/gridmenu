@@ -1,4 +1,4 @@
-package com.bcc.opensource.squaremenu;
+package com.bcc.gridmenuview;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-public class SquareMenuAdapter extends RecyclerView.Adapter<SquareMenuAdapter.ViewHolder> {
+public class GridMenuAdapter extends RecyclerView.Adapter<GridMenuAdapter.ViewHolder> {
     private List<MenuItem> menuItems;
 
     public void setMenuItems(List<MenuItem> menuItems) {

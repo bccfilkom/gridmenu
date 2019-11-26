@@ -1,4 +1,4 @@
-package com.bcc.opensource.squaremenu;
+package com.bcc.gridmenuview;
 
 import android.graphics.drawable.Drawable;
 

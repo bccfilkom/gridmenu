@@ -1,4 +1,4 @@
-package com.bcc.opensource.gridmenu;
+package com.bcc.gridmenu;
 
 import org.junit.Test;
 

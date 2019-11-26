@@ -1,4 +1,4 @@
-package com.bcc.opensource.gridmenu;
+package com.bcc.gridmenuview;
 
 import android.content.Context;
 
@@ -22,6 +22,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
 
-        assertEquals("com.bcc.opensource.gridmenu", appContext.getPackageName());
+        assertEquals("com.bcc.opensource.squaremenu.test", appContext.getPackageName());
     }
 }
