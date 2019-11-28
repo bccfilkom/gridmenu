@@ -14,10 +14,15 @@ import java.util.List;
 
 public class GridMenuAdapter extends RecyclerView.Adapter<GridMenuAdapter.ViewHolder> {
     private List<MenuItem> menuItems;
+    private GridMenuOnClickListener gridMenuOnClickListener;
 
     public void setMenuItems(List<MenuItem> menuItems) {
         this.menuItems = menuItems;
         notifyDataSetChanged();
+    }
+
+    public void setOnClickListener(GridMenuOnClickListener listener){
+        this.gridMenuOnClickListener = listener;
     }
 
     @NonNull
@@ -28,9 +33,15 @@ public class GridMenuAdapter extends RecyclerView.Adapter<GridMenuAdapter.ViewHo
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull final ViewHolder holder, int position) {
         holder.title.setText(menuItems.get(position).getTitle());
         holder.image.setImageDrawable(menuItems.get(position).getImage());
+        holder.card.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                gridMenuOnClickListener.ontClick(holder.getAdapterPosition());
+            }
+        });
     }
 
     @Override

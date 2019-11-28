@@ -1,10 +1,12 @@
 package com.bcc.gridmenu;
 
 import android.os.Bundle;
+import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.bcc.gridmenuview.GridMenu;
+import com.bcc.gridmenuview.GridMenuOnClickListener;
 import com.bcc.gridmenuview.MenuItem;
 
 import java.util.ArrayList;
@@ -26,5 +28,11 @@ public class MainActivity extends AppCompatActivity {
 
         GridMenu menu = findViewById(R.id.square_menu);
         menu.setMenuItems(list);
+        menu.setOnClickListener(new GridMenuOnClickListener() {
+            @Override
+            public void ontClick(int position) {
+                Log.i("===== ", "ontClick: " + position);
+            }
+        });
     }
 }

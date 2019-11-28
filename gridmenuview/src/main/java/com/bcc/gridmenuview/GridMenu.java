@@ -42,4 +42,8 @@ public class GridMenu extends FrameLayout {
 
         typedArray.recycle();
     }
+
+    public void setOnClickListener(GridMenuOnClickListener listener){
+        adapter.setOnClickListener(listener);
+    }
 }
