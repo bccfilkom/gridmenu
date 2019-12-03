@@ -7,7 +7,6 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class MenuItemTest  {
-
     private MenuItem  menuItem;
 
     @Before
@@ -20,12 +19,12 @@ public class MenuItemTest  {
     }
 
     @Test
-    public void testMenuItemNotNull(){
+    public void MenuItemNotNull(){
         assertNotNull(menuItem);
     }
 
     @Test
-    public void testMenuGetTittleShouldReturnString() {
+    public void MenuGetTitleShouldReturnString() {
         assertEquals(menuItem.getTitle(),"Satu");
     }
 
