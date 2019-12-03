@@ -38,6 +38,6 @@ public class SquareMenuAdapterTest {
                 .getResources()
                 .getDrawable(R.drawable.ic_launcher_background)));
         squareMenuAdapter.setMenuItems(list);
-        assertEquals(squareMenuAdapter.getItemCount(),3);
+        assertEquals(list.size(), squareMenuAdapter.getItemCount());
     }
 }
