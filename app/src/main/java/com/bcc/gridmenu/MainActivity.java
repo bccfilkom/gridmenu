@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ArrayList<MenuItem> list = new ArrayList<>();
+        final ArrayList<MenuItem> list = new ArrayList<>();
         list.add(new MenuItem("satu", getResources().getDrawable(R.drawable.ic_launcher_foreground)));
         list.add(new MenuItem("dua", getResources().getDrawable(R.drawable.ic_launcher_foreground)));
         list.add(new MenuItem("tiga", getResources().getDrawable(R.drawable.ic_launcher_foreground)));
@@ -32,8 +32,7 @@ public class MainActivity extends AppCompatActivity {
         menu.setOnClickListener(new OnItemClickListener() {
             @Override
             public void onClick(int position) {
-                Log.i("===== ", "onClick: " + position);
-                Toast.makeText(MainActivity.this, "" + position, Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "you selected " + list.get(position).getTitle(), Toast.LENGTH_SHORT).show();
             }
         });
     }
