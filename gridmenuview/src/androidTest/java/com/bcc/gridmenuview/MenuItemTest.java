@@ -19,12 +19,12 @@ public class MenuItemTest  {
     }
 
     @Test
-    public void MenuItemNotNull(){
+    public void menuItemNotNull(){
         assertNotNull(menuItem);
     }
 
     @Test
-    public void MenuGetTitleShouldReturnString() {
+    public void menuGetTitleShouldReturnString() {
         assertEquals(menuItem.getTitle(),"Satu");
     }
 
