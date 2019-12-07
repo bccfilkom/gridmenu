@@ -35,8 +35,8 @@ public class MenuItemTest  {
                 .getContext()
                 .getDrawable(R.drawable.ic_launcher_background);
         if (image!=null) {
-            assertEquals(menuItem.getImage()
-                    .getConstantState(), image.getConstantState());
+            assertEquals(image.getConstantState() , menuItem.getImage()
+                    .getConstantState());
         }
     }
 }
