@@ -25,7 +25,7 @@ public class MenuItemTest  {
 
     @Test
     public void menuGetTitleShouldReturnString() {
-        assertEquals(menuItem.getTitle(),"Satu");
+        assertEquals("Satu", menuItem.getTitle());
     }
 
     @Test
