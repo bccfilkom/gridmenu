@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.bcc.gridmenuview.component.SquareLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/ll_card"
     android:orientation="vertical"
     android:layout_width="wrap_content"
@@ -8,12 +8,16 @@
     <ImageView
         android:id="@+id/iv_image"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@android:color/darker_gray" />
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:clickable="true"
+        android:foreground="?attr/selectableItemBackground"
+        android:padding="4dp"
+        android:src="@android:color/darker_gray" />
 
     <TextView
         android:id="@+id/tv_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center" />
-</LinearLayout>
+</com.bcc.gridmenuview.component.SquareLayout>

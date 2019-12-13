@@ -1,14 +1,18 @@
-package com.bcc.gridmenuview;
+package com.bcc.gridmenuview.adapter;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.bcc.gridmenuview.R;
+import com.bcc.gridmenuview.component.SquareLayout;
+import com.bcc.gridmenuview.event.OnItemClickListener;
+import com.bcc.gridmenuview.model.MenuItem;
 
 import java.util.List;
 
@@ -51,12 +55,12 @@ public class GridMenuAdapter extends RecyclerView.Adapter<GridMenuAdapter.ViewHo
         return menuItems.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
-        private LinearLayout card;
+    class ViewHolder extends RecyclerView.ViewHolder {
+        private SquareLayout card;
         private TextView title;
         private ImageView image;
 
-        public ViewHolder(@NonNull View itemView) {
+        ViewHolder(@NonNull View itemView) {
             super(itemView);
             this.card = itemView.findViewById(R.id.ll_card);
             this.title = itemView.findViewById(R.id.tv_title);
