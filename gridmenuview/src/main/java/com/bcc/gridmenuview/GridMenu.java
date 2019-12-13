@@ -9,6 +9,10 @@ import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bcc.gridmenuview.adapter.GridMenuAdapter;
+import com.bcc.gridmenuview.event.OnItemClickListener;
+import com.bcc.gridmenuview.model.MenuItem;
+
 import java.util.List;
 
 public class GridMenu extends FrameLayout {
@@ -34,6 +38,9 @@ public class GridMenu extends FrameLayout {
         adapter.setMenuItems(menuItems);
     }
 
+    /**
+     * setupAttribute reads XML spanCount attribute and store it to spanCount instance variable
+     */
     private void setupAttribute(@Nullable AttributeSet attrs) {
         TypedArray typedArray = getContext().getTheme()
                 .obtainStyledAttributes(attrs, R.styleable.GridMenu, 0, 0);

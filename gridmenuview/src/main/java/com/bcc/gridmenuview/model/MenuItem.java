@@ -1,4 +1,4 @@
-package com.bcc.gridmenuview;
+package com.bcc.gridmenuview.model;
 
 import android.graphics.drawable.Drawable;
 

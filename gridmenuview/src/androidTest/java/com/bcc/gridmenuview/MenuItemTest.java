@@ -1,13 +1,19 @@
 package com.bcc.gridmenuview;
+
 import android.graphics.drawable.Drawable;
+
 import androidx.test.platform.app.InstrumentationRegistry;
+
+import com.bcc.gridmenuview.model.MenuItem;
+
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 public class MenuItemTest  {
-    private MenuItem  menuItem;
+    private MenuItem menuItem;
 
     @Before
     public void setUp()  {
