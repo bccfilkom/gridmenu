@@ -2,17 +2,26 @@
 
 GridMenu is a simple-but-customizable view consisted list of menu arranged in grid-fashioned way.
 
+[![](https://jitpack.io/v/bccfilkom/gridmenu.svg)](https://jitpack.io/#bccfilkom/gridmenu)
+
 <img src="sample.png" title="Grid Menu"/>
 
 ## Download
 
 ### Gradle:
 ```groovy
-
+dependencies {
+        implementation 'com.github.bccfilkom:gridmenu:1.0.0'
+}
 ```
+
 ### Maven:
 ```xml
-
+<dependency>
+    <groupId>com.github.bccfilkom</groupId>
+    <artifactId>gridmenu</artifactId>
+    <version>1.0.0</version>
+</dependency>
 ```
 
 ## Usage
