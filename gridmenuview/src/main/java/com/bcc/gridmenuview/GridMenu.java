@@ -2,9 +2,13 @@ package com.bcc.gridmenuview;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.graphics.Rect;
 import android.util.AttributeSet;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -31,6 +35,7 @@ public class GridMenu extends FrameLayout {
         RecyclerView recyclerView = new RecyclerView(getContext());
         recyclerView.setLayoutManager(new GridLayoutManager(getContext(), spanCount));
         recyclerView.setAdapter(adapter);
+        recyclerView.addItemDecoration(new CenterItemDecoration());
         addView(recyclerView);
     }
 
@@ -50,7 +55,55 @@ public class GridMenu extends FrameLayout {
         typedArray.recycle();
     }
 
-    public void setOnClickListener(OnItemClickListener listener){
+    public void setOnClickListener(OnItemClickListener listener) {
         adapter.setOnClickListener(listener);
+    }
+
+    private class CenterItemDecoration extends RecyclerView.ItemDecoration {
+
+        private void measureItemView(View itemView, ViewGroup parent) {
+            if (itemView.getLayoutParams() == null) {
+                itemView.setLayoutParams(
+                        new ViewGroup.LayoutParams(
+                                ViewGroup.LayoutParams.WRAP_CONTENT,
+                                ViewGroup.LayoutParams.WRAP_CONTENT
+                        )
+                );
+            }
+
+            int widthSpec = View.MeasureSpec.makeMeasureSpec(
+                    parent.getMeasuredWidth(),
+                    MeasureSpec.EXACTLY
+            );
+            int heightSpec = View.MeasureSpec.makeMeasureSpec(
+                    parent.getMeasuredHeight(),
+                    MeasureSpec.UNSPECIFIED
+            );
+            int itemViewWidth = ViewGroup.getChildMeasureSpec(
+                    widthSpec,
+                    parent.getPaddingLeft() + parent.getPaddingRight(),
+                    itemView.getLayoutParams().width
+            );
+            int itemViewHeight = ViewGroup.getChildMeasureSpec(
+                    heightSpec,
+                    parent.getPaddingTop() + parent.getPaddingBottom(),
+                    itemView.getLayoutParams().height
+            );
+            itemView.measure(itemViewWidth, itemViewHeight);
+            itemView.layout(0, 0, itemView.getMeasuredWidth(), itemView.getMeasuredHeight());
+        }
+
+        @Override
+        public void getItemOffsets(@NonNull Rect outRect, @NonNull View view, @NonNull RecyclerView parent, @NonNull RecyclerView.State state) {
+            super.getItemOffsets(outRect, view, parent, state);
+
+            measureItemView(view, parent);
+
+            int viewWidth = view.getMeasuredWidth();
+            if (spanCount * viewWidth < parent.getMeasuredWidth()) {
+                int emptySpacePx = parent.getMeasuredWidth() - spanCount * viewWidth;
+                outRect.left = outRect.right = emptySpacePx / (2 * spanCount);
+            }
+        }
     }
 }
