@@ -9,7 +9,6 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bcc.gridmenuview.R;
-import com.bcc.gridmenuview.component.SquareLayout;
 import com.bcc.gridmenuview.event.OnItemClickListener;
 import com.bcc.gridmenuview.model.MenuItem;
 
@@ -57,13 +56,11 @@ public class GridMenuAdapter extends RecyclerView.Adapter<GridMenuAdapter.ViewHo
     }
 
     class ViewHolder extends RecyclerView.ViewHolder {
-        private SquareLayout card;
         private TextView title;
         private CircleImageView image;
 
         ViewHolder(@NonNull View itemView) {
             super(itemView);
-            this.card = itemView.findViewById(R.id.square_layout);
             this.title = itemView.findViewById(R.id.tv_title);
             this.image = itemView.findViewById(R.id.civ_image);
         }

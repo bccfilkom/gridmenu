@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.bcc.gridmenuview.component.SquareLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/square_layout"
     android:orientation="vertical"
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:padding="8dp">
 
-    <FrameLayout
+    <com.bcc.gridmenuview.component.SquareLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1">
@@ -14,8 +15,7 @@
             android:id="@+id/civ_image"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:scaleType="centerCrop"
-            android:src="@android:color/darker_gray" />
+            android:scaleType="centerCrop" />
 
         <ImageView
             android:id="@+id/civ_image_overlay"
@@ -24,11 +24,11 @@
             android:clickable="true"
             android:focusable="true"
             android:src="@drawable/circle_ripple" />
-    </FrameLayout>
+    </com.bcc.gridmenuview.component.SquareLayout>
 
     <TextView
         android:id="@+id/tv_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center" />
-</com.bcc.gridmenuview.component.SquareLayout>
+</LinearLayout>
