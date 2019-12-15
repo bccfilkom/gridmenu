@@ -6,7 +6,7 @@ import android.widget.FrameLayout;
 
 import androidx.annotation.Nullable;
 
-public class SquareLayout extends FrameLayout {
+class SquareLayout extends FrameLayout {
     public SquareLayout(Context context) {
         super(context);
     }
