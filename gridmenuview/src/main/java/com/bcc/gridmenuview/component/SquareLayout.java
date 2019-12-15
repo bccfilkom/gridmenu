@@ -2,11 +2,11 @@ package com.bcc.gridmenuview.component;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.widget.LinearLayout;
+import android.widget.FrameLayout;
 
 import androidx.annotation.Nullable;
 
-public class SquareLayout extends LinearLayout {
+public class SquareLayout extends FrameLayout {
     public SquareLayout(Context context) {
         super(context);
     }

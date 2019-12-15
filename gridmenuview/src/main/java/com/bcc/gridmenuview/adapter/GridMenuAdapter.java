@@ -3,18 +3,18 @@ package com.bcc.gridmenuview.adapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bcc.gridmenuview.R;
-import com.bcc.gridmenuview.component.SquareLayout;
 import com.bcc.gridmenuview.event.OnItemClickListener;
 import com.bcc.gridmenuview.model.MenuItem;
 
 import java.util.List;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class GridMenuAdapter extends RecyclerView.Adapter<GridMenuAdapter.ViewHolder> {
     private List<MenuItem> menuItems;
@@ -40,7 +40,7 @@ public class GridMenuAdapter extends RecyclerView.Adapter<GridMenuAdapter.ViewHo
     public void onBindViewHolder(@NonNull final ViewHolder holder, int position) {
         holder.title.setText(menuItems.get(position).getTitle());
         holder.image.setImageDrawable(menuItems.get(position).getImage());
-        holder.card.setOnClickListener(new View.OnClickListener(){
+        holder.image.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view){
                 if(gridMenuOnClickListener != null){
@@ -56,15 +56,13 @@ public class GridMenuAdapter extends RecyclerView.Adapter<GridMenuAdapter.ViewHo
     }
 
     class ViewHolder extends RecyclerView.ViewHolder {
-        private SquareLayout card;
         private TextView title;
-        private ImageView image;
+        private CircleImageView image;
 
         ViewHolder(@NonNull View itemView) {
             super(itemView);
-            this.card = itemView.findViewById(R.id.ll_card);
             this.title = itemView.findViewById(R.id.tv_title);
-            this.image = itemView.findViewById(R.id.iv_image);
+            this.image = itemView.findViewById(R.id.civ_image);
         }
     }
 }

@@ -19,12 +19,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         final ArrayList<MenuItem> list = new ArrayList<>();
-        list.add(new MenuItem("satu", getResources().getDrawable(R.mipmap.ic_launcher_round)));
-        list.add(new MenuItem("dua", getResources().getDrawable(R.mipmap.ic_launcher_round)));
-        list.add(new MenuItem("tiga", getResources().getDrawable(R.mipmap.ic_launcher_round)));
-        list.add(new MenuItem("satu", getResources().getDrawable(R.mipmap.ic_launcher_round)));
-        list.add(new MenuItem("dua", getResources().getDrawable(R.mipmap.ic_launcher_round)));
-        list.add(new MenuItem("tiga", getResources().getDrawable(R.mipmap.ic_launcher_round)));
+        list.add(new MenuItem("satu", getResources().getDrawable(R.drawable.ic_launcher_background)));
+        list.add(new MenuItem("dua", getResources().getDrawable(R.drawable.ic_launcher_background)));
+        list.add(new MenuItem("tiga", getResources().getDrawable(R.drawable.ic_launcher_background)));
+        list.add(new MenuItem("empat", getResources().getDrawable(R.drawable.ic_launcher_background)));
+        list.add(new MenuItem("lima", getResources().getDrawable(R.drawable.ic_launcher_background)));
+        list.add(new MenuItem("enam", getResources().getDrawable(R.drawable.ic_launcher_background)));
 
         GridMenu menu = findViewById(R.id.square_menu);
         menu.setMenuItems(list);
