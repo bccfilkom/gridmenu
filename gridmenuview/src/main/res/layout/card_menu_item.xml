@@ -18,7 +18,7 @@
             android:scaleType="centerCrop" />
 
         <ImageView
-            android:id="@+id/civ_image_overlay"
+            android:id="@+id/iv_image_overlay"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:clickable="true"
