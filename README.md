@@ -58,6 +58,7 @@ dependencies {
 ```
 
 ### Include following code in your activity:
+#### Java
 ```java
 GridMenu menu = findViewById(R.id.menu);
 menu.setMenuItems(list);
@@ -67,6 +68,13 @@ menu.setOnClickListener(new OnItemClickListener() {
         // do something
     }
 });
+```
+#### Kotlin
+```kotlin
+square_menu.setMenuItems(list)
+square_menu.setOnClickListener { position: Int ->
+    // do something
+}
 ```
 
 ## Supported xml Attributes
