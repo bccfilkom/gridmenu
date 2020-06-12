@@ -12,8 +12,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bcc.gridmenuview.R;
 import com.bcc.gridmenuview.event.OnItemClickListener;
 import com.bcc.gridmenuview.model.MenuItem;
+import com.bcc.gridmenuview.task.ImageUrlAsyncTask;
 
 import java.util.List;
+import java.util.concurrent.ExecutionException;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -26,7 +28,7 @@ public class GridMenuAdapter extends RecyclerView.Adapter<GridMenuAdapter.ViewHo
         notifyDataSetChanged();
     }
 
-    public void setOnClickListener(OnItemClickListener listener){
+    public void setOnClickListener(OnItemClickListener listener) {
         this.gridMenuOnClickListener = listener;
     }
 
@@ -40,11 +42,24 @@ public class GridMenuAdapter extends RecyclerView.Adapter<GridMenuAdapter.ViewHo
     @Override
     public void onBindViewHolder(@NonNull final ViewHolder holder, int position) {
         holder.title.setText(menuItems.get(position).getTitle());
-        holder.image.setImageDrawable(menuItems.get(position).getImage());
+        if (menuItems.get(position).getUrl() == null) {
+            holder.image.setImageDrawable(menuItems.get(position).getImage());
+        } else {
+            ImageUrlAsyncTask imageAsync = (ImageUrlAsyncTask) new ImageUrlAsyncTask()
+                    .execute(menuItems.get(position).getUrl(), holder.image.getContext());
+            try {
+                holder.image.setImageDrawable(imageAsync.get());
+            } catch (ExecutionException e) {
+                e.printStackTrace();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+
         holder.imageOverlay.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view){
-                if(gridMenuOnClickListener != null){
+            public void onClick(View view) {
+                if (gridMenuOnClickListener != null) {
                     gridMenuOnClickListener.onClick(holder.getAdapterPosition());
                 }
             }
