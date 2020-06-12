@@ -14,6 +14,7 @@ import static org.junit.Assert.assertNotNull;
 
 public class MenuItemTest  {
     private MenuItem menuItem;
+    private MenuItem menuItemUri;
 
     @Before
     public void setUp()  {
@@ -24,9 +25,19 @@ public class MenuItemTest  {
 
     }
 
+    @Before
+    public void setUpWithUri()  {
+        menuItemUri = new MenuItem("Satu","https://cdn3.iconfinder.com/data/icons/capsocial-round/500/youtube3-128.png");
+    }
+
     @Test
     public void menuItemNotNull(){
         assertNotNull(menuItem);
+    }
+
+    @Test
+    public void menuItemWithUriNotNull(){
+        assertNotNull(menuItemUri);
     }
 
     @Test
@@ -44,5 +55,10 @@ public class MenuItemTest  {
             assertEquals(image.getConstantState() , menuItem.getImage()
                     .getConstantState());
         }
+    }
+
+    @Test
+    public void getImageUri()  {
+            assertEquals("https://cdn3.iconfinder.com/data/icons/capsocial-round/500/youtube3-128.png",menuItemUri.getImageUri());
     }
 }

@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bcc.gridmenuview.R;
 import com.bcc.gridmenuview.event.OnItemClickListener;
 import com.bcc.gridmenuview.model.MenuItem;
+import com.bumptech.glide.Glide;
 
 import java.util.List;
 
@@ -26,7 +27,11 @@ public class GridMenuAdapter extends RecyclerView.Adapter<GridMenuAdapter.ViewHo
         notifyDataSetChanged();
     }
 
-    public void setOnClickListener(OnItemClickListener listener){
+    private boolean setIsImageUri(int position) {
+        return menuItems.get(position).getImageUri() != null;
+    }
+
+    public void setOnClickListener(OnItemClickListener listener) {
         this.gridMenuOnClickListener = listener;
     }
 
@@ -39,16 +44,8 @@ public class GridMenuAdapter extends RecyclerView.Adapter<GridMenuAdapter.ViewHo
 
     @Override
     public void onBindViewHolder(@NonNull final ViewHolder holder, int position) {
-        holder.title.setText(menuItems.get(position).getTitle());
-        holder.image.setImageDrawable(menuItems.get(position).getImage());
-        holder.imageOverlay.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view){
-                if(gridMenuOnClickListener != null){
-                    gridMenuOnClickListener.onClick(holder.getAdapterPosition());
-                }
-            }
-        });
+        MenuItem menuItem = menuItems.get(position);
+        holder.bind(menuItem, setIsImageUri(position));
     }
 
     @Override
@@ -66,6 +63,26 @@ public class GridMenuAdapter extends RecyclerView.Adapter<GridMenuAdapter.ViewHo
             this.title = itemView.findViewById(R.id.tv_title);
             this.image = itemView.findViewById(R.id.civ_image);
             this.imageOverlay = itemView.findViewById(R.id.iv_image_overlay);
+        }
+
+        void bind(final MenuItem menuItem, boolean isImageUri) {
+            title.setText(menuItem.getTitle());
+            if (isImageUri) {
+                String toHttpsUri = menuItem.getImageUri().replace("http://","https://");
+                Glide.with(itemView)
+                        .load(toHttpsUri)
+                        .into(image);
+            } else {
+                image.setImageDrawable(menuItem.getImage());
+            }
+            imageOverlay.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if (gridMenuOnClickListener != null) {
+                        gridMenuOnClickListener.onClick(getAdapterPosition());
+                    }
+                }
+            });
         }
     }
 }

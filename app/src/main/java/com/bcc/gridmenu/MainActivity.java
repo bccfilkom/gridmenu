@@ -23,8 +23,10 @@ public class MainActivity extends AppCompatActivity {
         list.add(new MenuItem("dua", getResources().getDrawable(R.drawable.ic_launcher_background)));
         list.add(new MenuItem("tiga", getResources().getDrawable(R.drawable.ic_launcher_background)));
         list.add(new MenuItem("empat", getResources().getDrawable(R.drawable.ic_launcher_background)));
-        list.add(new MenuItem("lima", getResources().getDrawable(R.drawable.ic_launcher_background)));
-        list.add(new MenuItem("enam", getResources().getDrawable(R.drawable.ic_launcher_background)));
+        list.add(new MenuItem("lima", "https://cdn3.iconfinder.com/data/icons/capsocial-round/500/youtube3-128.png"));
+        list.add(new MenuItem("enam","https://cdn3.iconfinder.com/data/icons/capsocial-round/500/facebook-128.png"));
+        list.add(new MenuItem("lima", "http://icons.veryicon.com/png/System/Beautiful%20Flat/chat.png"));
+        list.add(new MenuItem("lima", "http://icons.veryicon.com/png/System/Beautiful%20Flat/colorwheel.png"));
 
         GridMenu menu = findViewById(R.id.square_menu);
         menu.setMenuItems(list);
