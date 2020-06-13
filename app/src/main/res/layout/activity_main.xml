@@ -12,5 +12,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        app:spanCount="4" />
+        app:spanCount="5"
+        app:shapeItem="circle" />
 </LinearLayout>

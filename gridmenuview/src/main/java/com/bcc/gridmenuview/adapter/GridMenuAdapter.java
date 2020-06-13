@@ -15,7 +15,6 @@ import com.bcc.gridmenuview.model.MenuItem;
 
 import java.util.List;
 
-import de.hdodenhof.circleimageview.CircleImageView;
 
 public class GridMenuAdapter extends RecyclerView.Adapter<GridMenuAdapter.ViewHolder> {
     private List<MenuItem> menuItems;
@@ -58,13 +57,13 @@ public class GridMenuAdapter extends RecyclerView.Adapter<GridMenuAdapter.ViewHo
 
     class ViewHolder extends RecyclerView.ViewHolder {
         private TextView title;
-        private CircleImageView image;
+        private ImageView image;
         private ImageView imageOverlay;
 
         ViewHolder(@NonNull View itemView) {
             super(itemView);
             this.title = itemView.findViewById(R.id.tv_title);
-            this.image = itemView.findViewById(R.id.civ_image);
+            this.image = itemView.findViewById(R.id.iv_image);
             this.imageOverlay = itemView.findViewById(R.id.iv_image_overlay);
         }
     }

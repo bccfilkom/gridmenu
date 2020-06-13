@@ -7,6 +7,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -21,9 +22,11 @@ import java.util.List;
 
 public class GridMenu extends FrameLayout {
     private static final int DEFAULT_SPAN_COUNT = 3;
+    private static final int DEFAULT_SHAPE_ITEM = 0;
 
     private GridMenuAdapter adapter = new GridMenuAdapter();
     private int spanCount;
+    private int shapeItem;
 
     public GridMenu(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
@@ -51,12 +54,24 @@ public class GridMenu extends FrameLayout {
                 .obtainStyledAttributes(attrs, R.styleable.GridMenu, 0, 0);
 
         spanCount = typedArray.getInt(R.styleable.GridMenu_spanCount, DEFAULT_SPAN_COUNT);
+        shapeItem = typedArray.getInt(R.styleable.GridMenu_shapeItem, DEFAULT_SHAPE_ITEM);
 
         typedArray.recycle();
     }
 
     public void setOnClickListener(OnItemClickListener listener) {
         adapter.setOnClickListener(listener);
+    }
+
+    private enum ShapeElement {
+        SQUARE(0),
+        CIRCLE(1);
+
+        public final int label;
+
+        ShapeElement(int label) {
+            this.label = label;
+        }
     }
 
     private class CenterItemDecoration extends RecyclerView.ItemDecoration {
@@ -103,6 +118,16 @@ public class GridMenu extends FrameLayout {
             if (spanCount * viewWidth < parent.getMeasuredWidth()) {
                 int emptySpacePx = parent.getMeasuredWidth() - spanCount * viewWidth;
                 outRect.left = outRect.right = emptySpacePx / (2 * spanCount);
+            }
+
+            ImageView menuItemView = view.findViewById(R.id.iv_image);
+            ImageView menuItemOverlay = view.findViewById(R.id.iv_image_overlay);
+            if (shapeItem == ShapeElement.SQUARE.label) {
+                menuItemView.setImageResource(R.drawable.square);
+                menuItemOverlay.setImageResource(R.drawable.square_ripple);
+            } else if (shapeItem == ShapeElement.CIRCLE.label) {
+                menuItemView.setImageResource(R.drawable.circle);
+                menuItemOverlay.setImageResource(R.drawable.circle_ripple);
             }
         }
     }
