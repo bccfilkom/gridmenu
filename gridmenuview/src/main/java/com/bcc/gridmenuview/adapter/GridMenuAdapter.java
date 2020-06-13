@@ -12,7 +12,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bcc.gridmenuview.R;
 import com.bcc.gridmenuview.event.OnItemClickListener;
 import com.bcc.gridmenuview.model.MenuItem;
-import com.bumptech.glide.Glide;
 
 import java.util.List;
 
@@ -25,10 +24,6 @@ public class GridMenuAdapter extends RecyclerView.Adapter<GridMenuAdapter.ViewHo
     public void setMenuItems(List<MenuItem> menuItems) {
         this.menuItems = menuItems;
         notifyDataSetChanged();
-    }
-
-    private boolean setIsImageUri(int position) {
-        return menuItems.get(position).getImageUri() != null;
     }
 
     public void setOnClickListener(OnItemClickListener listener) {
@@ -45,7 +40,7 @@ public class GridMenuAdapter extends RecyclerView.Adapter<GridMenuAdapter.ViewHo
     @Override
     public void onBindViewHolder(@NonNull final ViewHolder holder, int position) {
         MenuItem menuItem = menuItems.get(position);
-        holder.bind(menuItem, setIsImageUri(position));
+        holder.bind(menuItem);
     }
 
     @Override
@@ -65,16 +60,9 @@ public class GridMenuAdapter extends RecyclerView.Adapter<GridMenuAdapter.ViewHo
             this.imageOverlay = itemView.findViewById(R.id.iv_image_overlay);
         }
 
-        void bind(final MenuItem menuItem, boolean isImageUri) {
+        void bind(final MenuItem menuItem) {
             title.setText(menuItem.getTitle());
-            if (isImageUri) {
-                String toHttpsUri = menuItem.getImageUri().replace("http://","https://");
-                Glide.with(itemView)
-                        .load(toHttpsUri)
-                        .into(image);
-            } else {
-                image.setImageDrawable(menuItem.getImage());
-            }
+            image.setImageDrawable(menuItem.getDrawable());
             imageOverlay.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
