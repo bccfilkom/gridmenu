@@ -12,13 +12,13 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
-public class MenuItemTest  {
+public class MenuItemTest {
     private MenuItem menuItem;
     private MenuItem menuItemUri;
 
     @Before
-    public void setUp()  {
-        menuItem = new MenuItem("Satu",InstrumentationRegistry
+    public void setUp() {
+        menuItem = new MenuItem("Satu", InstrumentationRegistry
                 .getInstrumentation()
                 .getContext()
                 .getDrawable(R.drawable.ic_launcher_background));
@@ -26,17 +26,17 @@ public class MenuItemTest  {
     }
 
     @Before
-    public void setUpWithUri()  {
-        menuItemUri = new MenuItem("Satu","https://cdn3.iconfinder.com/data/icons/capsocial-round/500/youtube3-128.png");
+    public void setUpWithUri() {
+        menuItemUri = new MenuItem("Satu", "https://cdn3.iconfinder.com/data/icons/capsocial-round/500/youtube3-128.png");
     }
 
     @Test
-    public void menuItemNotNull(){
+    public void menuItemNotNull() {
         assertNotNull(menuItem);
     }
 
     @Test
-    public void menuItemWithUriNotNull(){
+    public void menuItemWithUriNotNull() {
         assertNotNull(menuItemUri);
     }
 
@@ -46,19 +46,19 @@ public class MenuItemTest  {
     }
 
     @Test
-    public void getImage()  {
-        Drawable image =  InstrumentationRegistry
+    public void getImage() {
+        Drawable image = InstrumentationRegistry
                 .getInstrumentation()
                 .getContext()
                 .getDrawable(R.drawable.ic_launcher_background);
-        if (image!=null) {
-            assertEquals(image.getConstantState() , menuItem.getImage()
+        if (image != null) {
+            assertEquals(image.getConstantState(), menuItem.getImage()
                     .getConstantState());
         }
     }
 
     @Test
-    public void getImageUri()  {
-            assertEquals("https://cdn3.iconfinder.com/data/icons/capsocial-round/500/youtube3-128.png",menuItemUri.getImageUri());
+    public void getImageUri() {
+        assertEquals("https://cdn3.iconfinder.com/data/icons/capsocial-round/500/youtube3-128.png", menuItemUri.getImageUri());
     }
 }
