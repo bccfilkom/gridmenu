@@ -16,7 +16,6 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    final ArrayList<MenuItem> list = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
         NetworkImageProvider networkImageProvider = new NetworkImageProvider(this, "https://cdn3.iconfinder.com/data/icons/capsocial-round/500/youtube3-128.png");
         LocalImageProvider localImageProvider = new LocalImageProvider(this, "/storage/emulated/0/DCIM/Camera/test.jpg");
 
+        final ArrayList<MenuItem> list = new ArrayList<>();
         list.add(new MenuItem("satu", getResources().getDrawable(R.drawable.ic_launcher_background)));
         list.add(new MenuItem("dua", drawableImageProvider));
         list.add(new MenuItem("tiga", networkImageProvider));
