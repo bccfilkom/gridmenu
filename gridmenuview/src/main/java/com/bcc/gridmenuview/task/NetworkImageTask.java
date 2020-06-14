@@ -19,9 +19,9 @@ public class NetworkImageTask extends AsyncTask<String, Void, Drawable> {
     @SuppressLint("StaticFieldLeak")
     private Context context;
 
-    public NetworkImageTask(ImageProvider imageProvider, Context context) {
-        this.imageProvider = imageProvider;
+    public NetworkImageTask(Context context, ImageProvider imageProvider) {
         this.context = context;
+        this.imageProvider = imageProvider;
     }
 
     @Override

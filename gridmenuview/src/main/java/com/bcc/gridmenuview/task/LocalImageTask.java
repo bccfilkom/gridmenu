@@ -17,9 +17,9 @@ public class LocalImageTask extends AsyncTask<String, Void, Drawable> {
     @SuppressLint("StaticFieldLeak")
     private Context context;
 
-    public LocalImageTask(ImageProvider imageProvider, Context context) {
-        this.imageProvider = imageProvider;
+    public LocalImageTask(Context context, ImageProvider imageProvider) {
         this.context = context;
+        this.imageProvider = imageProvider;
     }
 
     @Override

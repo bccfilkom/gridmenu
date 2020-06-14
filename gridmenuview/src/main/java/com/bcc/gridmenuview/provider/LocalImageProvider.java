@@ -17,7 +17,7 @@ public class LocalImageProvider implements ImageProvider {
         this.path = filePath;
         File file = new File(filePath);
         try {
-            new LocalImageTask(this, context).execute(file.getAbsolutePath()).get();
+            new LocalImageTask(context, this).execute(file.getAbsolutePath()).get();
         } catch (ExecutionException e) {
             e.printStackTrace();
         } catch (InterruptedException e) {

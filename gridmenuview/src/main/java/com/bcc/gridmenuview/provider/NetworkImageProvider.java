@@ -15,7 +15,7 @@ public class NetworkImageProvider implements ImageProvider {
     public NetworkImageProvider(Context context, String url) {
         this.path = url;
         try {
-            new NetworkImageTask(this, context).execute(url).get();
+            new NetworkImageTask(context, this).execute(url).get();
         } catch (ExecutionException e) {
             e.printStackTrace();
         } catch (InterruptedException e) {
