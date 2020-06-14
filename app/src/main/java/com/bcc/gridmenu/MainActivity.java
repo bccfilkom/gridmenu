@@ -22,13 +22,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         DrawableImageProvider drawableImageProvider = new DrawableImageProvider(getResources().getDrawable(R.drawable.ic_launcher_background));
-        DrawableImageProvider drawableImageProvider2 = new DrawableImageProvider(getResources().getDrawable(R.drawable.ic_launcher_background));
         NetworkImageProvider networkImageProvider = new NetworkImageProvider(this, "https://cdn3.iconfinder.com/data/icons/capsocial-round/500/youtube3-128.png");
         LocalImageProvider localImageProvider = new LocalImageProvider(this, "/storage/emulated/0/DCIM/Camera/test.jpg");
 
         final ArrayList<MenuItem> list = new ArrayList<>();
-        list.add(new MenuItem("satu", drawableImageProvider));
-        list.add(new MenuItem("dua", drawableImageProvider2));
+        list.add(new MenuItem("satu", getResources().getDrawable(R.drawable.ic_launcher_background)));
+        list.add(new MenuItem("dua", drawableImageProvider));
         list.add(new MenuItem("tiga", networkImageProvider));
         list.add(new MenuItem("empat", localImageProvider));
 

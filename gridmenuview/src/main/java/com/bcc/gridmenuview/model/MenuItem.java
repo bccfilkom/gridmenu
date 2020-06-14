@@ -2,11 +2,16 @@ package com.bcc.gridmenuview.model;
 
 import android.graphics.drawable.Drawable;
 
+import com.bcc.gridmenuview.provider.DrawableImageProvider;
 import com.bcc.gridmenuview.provider.ImageProvider;
 
 public class MenuItem {
     private String title;
     private ImageProvider imageProvider;
+
+    public MenuItem(String title, Drawable image) {
+        this(title, new DrawableImageProvider(image));
+    }
 
     public MenuItem(String title, ImageProvider imageProvider) {
         this.title = title;

@@ -17,8 +17,9 @@ import static org.junit.Assert.assertNotNull;
 
 public class MenuItemTest {
 
+    private MenuItem menuItem;
     private MenuItem menuItemDrawable;
-    private MenuItem menuItemURL;
+    private MenuItem menuItemNetwork;
     private MenuItem menuItemLocal;
     private DrawableImageProvider drawableImageProvider;
     private NetworkImageProvider networkImageProvider;
@@ -26,6 +27,14 @@ public class MenuItemTest {
 
     @Before
     public void setUpMenuItemDrawable() {
+        menuItem = new MenuItem("Satu", InstrumentationRegistry
+                .getInstrumentation()
+                .getContext()
+                .getDrawable(R.drawable.ic_launcher_background));
+    }
+
+    @Before
+    public void setUpMenuItemDrawableImageProvider() {
         drawableImageProvider = new DrawableImageProvider(InstrumentationRegistry
                 .getInstrumentation()
                 .getContext()
@@ -34,13 +43,13 @@ public class MenuItemTest {
     }
 
     @Before
-    public void setUpMenuItemURL() {
+    public void setUpMenuItemNetworkImageProvider() {
         networkImageProvider = new NetworkImageProvider(InstrumentationRegistry.getInstrumentation().getContext(), "https://cdn3.iconfinder.com/data/icons/capsocial-round/500/youtube3-128.png");
-        menuItemURL = new MenuItem("Satu", networkImageProvider);
+        menuItemNetwork = new MenuItem("Satu", networkImageProvider);
     }
 
     @Before
-    public void setUpMenuItemLocal() {
+    public void setUpMenuItemLocalImageProvider() {
         localImageProvider = new LocalImageProvider(InstrumentationRegistry.getInstrumentation().getContext(), "/storage/emulated/0/DCIM/Camera/test.jpg");
         menuItemLocal = new MenuItem("Satu", localImageProvider);
     }
@@ -61,13 +70,18 @@ public class MenuItemTest {
     }
 
     @Test
+    public void menuItemNotNull() {
+        assertNotNull(menuItem);
+    }
+
+    @Test
     public void menuItemDrawableNotNull() {
         assertNotNull(menuItemDrawable);
     }
 
     @Test
     public void menuItemURLNotNull() {
-        assertNotNull(menuItemURL);
+        assertNotNull(menuItemNetwork);
     }
 
     @Test
@@ -77,11 +91,23 @@ public class MenuItemTest {
 
     @Test
     public void menuGetTitleShouldReturnString() {
-        assertEquals("Satu", menuItemDrawable.getTitle());
+        assertEquals("Satu", menuItem.getTitle());
     }
 
     @Test
     public void drawableNotNull() {
+        Drawable image = InstrumentationRegistry
+                .getInstrumentation()
+                .getContext()
+                .getDrawable(R.drawable.ic_launcher_background);
+        if (image != null) {
+            assertEquals(image.getConstantState(), menuItem.getDrawable()
+                    .getConstantState());
+        }
+    }
+
+    @Test
+    public void drawableWithProviderNotNull() {
         Drawable image = InstrumentationRegistry
                 .getInstrumentation()
                 .getContext()

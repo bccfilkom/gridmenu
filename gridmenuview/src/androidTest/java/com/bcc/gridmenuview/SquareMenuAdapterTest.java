@@ -51,9 +51,10 @@ public class SquareMenuAdapterTest {
                 "/storage/emulated/0/DCIM/Camera/test.jpg");
 
         ArrayList<MenuItem> list = new ArrayList<>();
-        list.add(new MenuItem("satu", drawableImageProvider));
-        list.add(new MenuItem("dua", networkImageProvider));
-        list.add(new MenuItem("tiga", localImageProvider));
+        list.add(new MenuItem("satu", InstrumentationRegistry.getInstrumentation().getContext().getDrawable(R.drawable.ic_launcher_background)));
+        list.add(new MenuItem("dua", drawableImageProvider));
+        list.add(new MenuItem("tiga", networkImageProvider));
+        list.add(new MenuItem("empat", localImageProvider));
         squareMenuAdapter.setMenuItems(list);
         assertEquals(list.size(), squareMenuAdapter.getItemCount());
     }
