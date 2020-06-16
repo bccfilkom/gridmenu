@@ -25,7 +25,7 @@ public class GridMenuAdapter extends RecyclerView.Adapter<GridMenuAdapter.ViewHo
         notifyDataSetChanged();
     }
 
-    public void setOnClickListener(OnItemClickListener listener){
+    public void setOnClickListener(OnItemClickListener listener) {
         this.gridMenuOnClickListener = listener;
     }
 
@@ -38,16 +38,8 @@ public class GridMenuAdapter extends RecyclerView.Adapter<GridMenuAdapter.ViewHo
 
     @Override
     public void onBindViewHolder(@NonNull final ViewHolder holder, int position) {
-        holder.title.setText(menuItems.get(position).getTitle());
-        holder.image.setImageDrawable(menuItems.get(position).getImage());
-        holder.imageOverlay.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view){
-                if(gridMenuOnClickListener != null){
-                    gridMenuOnClickListener.onClick(holder.getAdapterPosition());
-                }
-            }
-        });
+        MenuItem menuItem = menuItems.get(position);
+        holder.bind(menuItem);
     }
 
     @Override
@@ -65,6 +57,19 @@ public class GridMenuAdapter extends RecyclerView.Adapter<GridMenuAdapter.ViewHo
             this.title = itemView.findViewById(R.id.tv_title);
             this.image = itemView.findViewById(R.id.iv_image);
             this.imageOverlay = itemView.findViewById(R.id.iv_image_overlay);
+        }
+
+        void bind(final MenuItem menuItem) {
+            title.setText(menuItem.getTitle());
+            image.setImageDrawable(menuItem.getDrawable());
+            imageOverlay.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if (gridMenuOnClickListener != null) {
+                        gridMenuOnClickListener.onClick(getAdapterPosition());
+                    }
+                }
+            });
         }
     }
 }
