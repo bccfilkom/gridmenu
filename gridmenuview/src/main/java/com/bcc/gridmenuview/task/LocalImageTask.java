@@ -15,11 +15,11 @@ public class LocalImageTask extends AsyncTask<String, Void, Drawable> {
 
     private Drawable drawable;
     private ImageProvider imageProvider;
-    private final WeakReference<Context> contextWeakReference;
+    private final WeakReference<Context> context;
 
 
     public LocalImageTask(Context context, ImageProvider imageProvider) {
-        this.contextWeakReference = new WeakReference<>(context);
+        this.context = new WeakReference<>(context);
         this.imageProvider = imageProvider;
     }
 
@@ -29,7 +29,7 @@ public class LocalImageTask extends AsyncTask<String, Void, Drawable> {
         Bitmap bitmap;
         try {
             bitmap = BitmapFactory.decodeFile(filePath);
-            drawable = new BitmapDrawable(contextWeakReference.get().getResources(), bitmap);
+            drawable = new BitmapDrawable(context.get().getResources(), bitmap);
         } catch (Exception e) {
             e.printStackTrace();
         }

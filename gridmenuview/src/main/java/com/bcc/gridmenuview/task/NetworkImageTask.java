@@ -16,11 +16,11 @@ public class NetworkImageTask extends AsyncTask<String, Void, Drawable> {
 
     private Drawable drawable;
     private ImageProvider imageProvider;
-    private final WeakReference<Context> contextWeakReference;
+    private final WeakReference<Context> context;
 
 
     public NetworkImageTask(Context context, ImageProvider imageProvider) {
-        this.contextWeakReference = new WeakReference<>(context);
+        this.context = new WeakReference<>(context);
         this.imageProvider = imageProvider;
     }
 
@@ -31,7 +31,7 @@ public class NetworkImageTask extends AsyncTask<String, Void, Drawable> {
         try {
             InputStream srt = new java.net.URL(url).openStream();
             bitmap = BitmapFactory.decodeStream(srt);
-            drawable = new BitmapDrawable(contextWeakReference.get().getResources(), bitmap);
+            drawable = new BitmapDrawable(context.get().getResources(), bitmap);
         } catch (Exception e) {
             e.printStackTrace();
         }
