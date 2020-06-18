@@ -21,6 +21,7 @@ import com.bcc.gridmenuview.component.Square;
 import com.bcc.gridmenuview.event.OnItemClickListener;
 import com.bcc.gridmenuview.model.MenuItem;
 import com.bcc.gridmenuview.utils.ShapeElement;
+import com.christophesmet.android.views.maskableframelayout.MaskableFrameLayout;
 
 import java.util.List;
 
@@ -30,8 +31,8 @@ public class GridMenu extends FrameLayout {
 
     private GridMenuAdapter adapter = new GridMenuAdapter();
 
-    private ImageView menuItemView;
     private ImageView menuItemOverlay;
+    private MaskableFrameLayout maskableFrameLayout;
 
     private int spanCount;
     private int shapeItem;
@@ -76,12 +77,14 @@ public class GridMenu extends FrameLayout {
         Shape shape;
         switch (shapeLabel) {
             case SQUARE:
-                shape = new Square(menuItemView, menuItemOverlay);
-                shape.setShapeAttributes();
+                shape = new Square(maskableFrameLayout, menuItemOverlay);
+                shape.maskShape();
+                shape.shapeOverlay();
                 break;
             case CIRCLE:
-                shape = new Circle(menuItemView, menuItemOverlay);
-                shape.setShapeAttributes();
+                shape = new Circle(maskableFrameLayout, menuItemOverlay);
+                shape.maskShape();
+                shape.shapeOverlay();
                 break;
             default:
                 break;
@@ -134,7 +137,7 @@ public class GridMenu extends FrameLayout {
                 outRect.left = outRect.right = emptySpacePx / (2 * spanCount);
             }
 
-            menuItemView = view.findViewById(R.id.iv_image);
+            maskableFrameLayout = view.findViewById(R.id.frm_mask);
             menuItemOverlay = view.findViewById(R.id.iv_image_overlay);
 
             setMenuItemShape();

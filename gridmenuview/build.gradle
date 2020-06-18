@@ -37,4 +37,7 @@ dependencies {
     //image circle
     implementation 'de.hdodenhof:circleimageview:3.0.1'
 
+    //image masking
+    implementation 'com.github.christophesmet:android_maskable_layout:v1.3.2'
+
 }
