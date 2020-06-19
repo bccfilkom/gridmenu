@@ -1,6 +1,5 @@
 package com.bcc.gridmenuview.task;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -11,16 +10,17 @@ import android.os.AsyncTask;
 import com.bcc.gridmenuview.provider.ImageProvider;
 
 import java.io.InputStream;
+import java.lang.ref.WeakReference;
 
 public class NetworkImageTask extends AsyncTask<String, Void, Drawable> {
 
     private Drawable drawable;
     private ImageProvider imageProvider;
-    @SuppressLint("StaticFieldLeak")
-    private Context context;
+    private final WeakReference<Context> context;
+
 
     public NetworkImageTask(Context context, ImageProvider imageProvider) {
-        this.context = context;
+        this.context = new WeakReference<>(context);
         this.imageProvider = imageProvider;
     }
 
@@ -31,7 +31,7 @@ public class NetworkImageTask extends AsyncTask<String, Void, Drawable> {
         try {
             InputStream srt = new java.net.URL(url).openStream();
             bitmap = BitmapFactory.decodeStream(srt);
-            drawable = new BitmapDrawable((context).getResources(), bitmap);
+            drawable = new BitmapDrawable(context.get().getResources(), bitmap);
         } catch (Exception e) {
             e.printStackTrace();
         }
