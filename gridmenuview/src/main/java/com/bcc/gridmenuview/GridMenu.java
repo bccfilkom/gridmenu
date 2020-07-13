@@ -72,23 +72,21 @@ public class GridMenu extends FrameLayout {
         adapter.setOnClickListener(listener);
     }
 
-    private void setMenuItemShape() {
+    private void setMenuItemShape() throws Exception {
         ShapeElement shapeLabel = ShapeElement.values()[shapeItem];
         Shape shape;
         switch (shapeLabel) {
             case SQUARE:
                 shape = new Square(maskableFrameLayout, menuItemOverlay);
-                shape.maskShape();
-                shape.shapeOverlay();
                 break;
             case CIRCLE:
                 shape = new Circle(maskableFrameLayout, menuItemOverlay);
-                shape.maskShape();
-                shape.shapeOverlay();
                 break;
             default:
-                break;
+                throw new Exception("Failed to set shape attributes with undefined shape");
         }
+        shape.maskShape();
+        shape.shapeOverlay();
     }
 
     private class CenterItemDecoration extends RecyclerView.ItemDecoration {
@@ -140,7 +138,11 @@ public class GridMenu extends FrameLayout {
             maskableFrameLayout = view.findViewById(R.id.frm_mask);
             menuItemOverlay = view.findViewById(R.id.iv_image_overlay);
 
-            setMenuItemShape();
+            try {
+                setMenuItemShape();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 }

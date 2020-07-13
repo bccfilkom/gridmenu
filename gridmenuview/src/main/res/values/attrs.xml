@@ -7,8 +7,8 @@
     </declare-styleable>
 
     <attr name="shapeItem" format="enum">
-        <enum name="square" value="0" />
-        <enum name="circle" value="1" />
+        <enum name="circle" value="0" />
+        <enum name="square" value="1" />
     </attr>
 
 </resources>
