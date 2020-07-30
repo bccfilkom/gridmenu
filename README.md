@@ -48,6 +48,13 @@ dependencies {
 
 ## Usage
 
+### Add some permission to android manifest:
+```xml
+<uses-permission android:name="android.permission.INTERNET"/>
+<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+```
+
 ### Include following code in your layout:
 ```xml
 <com.bcc.gridmenuview.GridMenu
@@ -59,7 +66,17 @@ dependencies {
 
 ### Include following code in your activity:
 ```java
-GridMenu menu = findViewById(R.id.menu);
+DrawableImageProvider drawableImageProvider = new DrawableImageProvider(getResources().getDrawable(R.drawable.ic_launcher_background));
+NetworkImageProvider networkImageProvider = new NetworkImageProvider(this, "https://bccfilkom.gridmenu.org/test.jpg");
+LocalImageProvider localImageProvider = new LocalImageProvider(this, "/storage/emulated/0/DCIM/Camera/gridmenu.jpg");
+
+final ArrayList<MenuItem> list = new ArrayList<>();
+list.add(new MenuItem("satu", getResources().getDrawable(R.drawable.ic_launcher_background)));
+list.add(new MenuItem("dua", drawableImageProvider));
+list.add(new MenuItem("tiga", networkImageProvider));
+list.add(new MenuItem("empat", localImageProvider));
+
+GridMenu menu = findViewById(R.id.square_menu);
 menu.setMenuItems(list);
 menu.setOnClickListener(new OnItemClickListener() {
     @Override
