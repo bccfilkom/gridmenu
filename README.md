@@ -49,11 +49,17 @@ dependencies {
 ## Usage
 
 ### Add some permission to android manifest:
+
 ```xml
 <uses-permission android:name="android.permission.INTERNET"/>
 <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 ```
+
+Please note that the requirement of the permission is varied to your usage.
+
+- The `INTERNET` permission is required if you need to load the image from internet.
+- The `EXTERNAL_STORAGE` permission is required if you need to load the image from device local storage.
 
 ### Include following code in your layout:
 ```xml
@@ -86,11 +92,12 @@ menu.setOnClickListener(new OnItemClickListener() {
 });
 ```
 
-## Supported xml Attributes
+## Supported XML Attributes
 
-| Attribute  | Description          		 | Value   | Default Value |
-| -----------|-------------------------------|---------|---------------|
-| spanCount  | Number of columns in GridMenu.| integer | 3             |
+| Attribute  | Description                   | Value                | Default Value |
+| -----------|-------------------------------|----------------------|---------------|
+| spanCount  | Number of columns in GridMenu.| integer              | 3             |
+| shapeItem  | The shape of each item        | `circle` or `square` | `circle`      |
 
 ## Contributing to this project
 
