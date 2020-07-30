@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <declare-styleable name="GridMenu">
         <attr name="spanCount" format="integer" />
+        <attr name="shapeItem" />
     </declare-styleable>
+
+    <attr name="shapeItem" format="enum">
+        <enum name="circle" value="0" />
+        <enum name="square" value="1" />
+    </attr>
+
 </resources>

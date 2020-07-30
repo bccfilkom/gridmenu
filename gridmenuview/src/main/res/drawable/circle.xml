@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:innerRadius="0dp"
+    android:shape="oval"
+    android:thicknessRatio="2"
+    android:useLevel="false">
+    <solid android:color="@color/defaultColor" />
+    <size
+        android:width="@android:dimen/thumbnail_width"
+        android:height="@android:dimen/thumbnail_height" />
+</shape>

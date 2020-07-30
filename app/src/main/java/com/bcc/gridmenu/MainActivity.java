@@ -24,13 +24,15 @@ public class MainActivity extends AppCompatActivity {
 
         DrawableImageProvider drawableImageProvider = new DrawableImageProvider(getResources().getDrawable(R.drawable.ic_launcher_background));
         NetworkImageProvider networkImageProvider = new NetworkImageProvider(this, "https://cdn3.iconfinder.com/data/icons/capsocial-round/500/youtube3-128.png");
-        LocalImageProvider localImageProvider = new LocalImageProvider(this, "/storage/emulated/0/DCIM/Camera/test.jpg");
+        NetworkImageProvider networkImageProvider2 = new NetworkImageProvider(this, "https://cdn2.iconfinder.com/data/icons/scenarium-vol-5/128/002_home_beach_house_building_realty_sea_real_estate-512.png");
+        LocalImageProvider localImageProvider = new LocalImageProvider(this, "/storage/emulated/DCIM/Camera/test.jpg");
 
         final ArrayList<MenuItem> list = new ArrayList<>();
         list.add(new MenuItem("satu", getResources().getDrawable(R.drawable.ic_launcher_background)));
         list.add(new MenuItem("dua", drawableImageProvider));
         list.add(new MenuItem("tiga", networkImageProvider));
-        list.add(new MenuItem("empat", localImageProvider));
+        list.add(new MenuItem("empat", networkImageProvider2));
+        list.add(new MenuItem("lima", localImageProvider));
 
         GridMenu menu = findViewById(R.id.square_menu);
         menu.setMenuItems(list);
