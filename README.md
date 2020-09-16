@@ -70,20 +70,64 @@ Please note that the requirement of the permission is varied to your usage.
     app:spanCount="4"/>
 ```
 
-### Include following code in your activity:
+### Supported URI for Image Providers:
+
+Gridmenu support for multiple URI providers on each menu item's image. Some examples are displayed below, please check it out.
+
+- Drawable: Use this for load image from application resources.
+- Network: Use this for load image by URL.
+- Local: Use this for load image by file path.
+
+#### Drawable Image Usage:
+
+```java
+final ArrayList<MenuItem> list = new ArrayList<>();
+list.add(new MenuItem("satu", getResources().getDrawable(R.drawable.ic_launcher_background)));
+```
+
 ```java
 DrawableImageProvider drawableImageProvider = new DrawableImageProvider(getResources().getDrawable(R.drawable.ic_launcher_background));
+
+final ArrayList<MenuItem> list = new ArrayList<>();
+list.add(new MenuItem("dua", drawableImageProvider));
+```
+
+#### Network Image Usage:
+
+```java
 NetworkImageProvider networkImageProvider = new NetworkImageProvider(this, "https://bccfilkom.gridmenu.org/test.jpg");
+
+final ArrayList<MenuItem> list = new ArrayList<>();
+list.add(new MenuItem("tiga", networkImageProvider));
+```
+
+#### Local Image Usage:
+
+```java
 LocalImageProvider localImageProvider = new LocalImageProvider(this, "/storage/emulated/0/DCIM/Camera/gridmenu.jpg");
 
 final ArrayList<MenuItem> list = new ArrayList<>();
-list.add(new MenuItem("satu", getResources().getDrawable(R.drawable.ic_launcher_background)));
-list.add(new MenuItem("dua", drawableImageProvider));
-list.add(new MenuItem("tiga", networkImageProvider));
 list.add(new MenuItem("empat", localImageProvider));
+```
 
-GridMenu menu = findViewById(R.id.square_menu);
+### Include following code in your activity:
+
+```java
+final ArrayList<MenuItem> list = new ArrayList<>();
+list.add(new MenuItem("satu", drawableImageProvider));
+list.add(new MenuItem("dua", networkImageProvider));
+list.add(new MenuItem("tiga", localImageProvider));
+
+GridMenu menu = findViewById(R.id.menu);
 menu.setMenuItems(list);
+```
+
+### Add menu item event:
+
+Menu's event for each menu item example
+
+```java
+GridMenu menu = findViewById(R.id.square_menu);
 menu.setOnClickListener(new OnItemClickListener() {
     @Override
     public void onClick(int position) {
